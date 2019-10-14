@@ -20,14 +20,14 @@ import com.example.demo.controller.dto.StudentDto;
 import com.example.demo.controller.form.StudentNewForm;
 import com.example.demo.controller.form.StudentEditForm;
 import com.example.demo.controller.form.StudentDeleteForm;
-import com.example.demo.repository.StudentRespository;
+import com.example.demo.repository.StudentRepository;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 	
 	@Autowired
-	private StudentRespository studentRepository;
+	private StudentRepository studentRepository;
 	
 	@GetMapping
 	public List<StudentDto> getStudentList() {

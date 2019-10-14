@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.example.demo.model.Student;
-import com.example.demo.repository.StudentRespository;
+import com.example.demo.repository.StudentRepository;
 
 public class StudentEditForm {
 	
@@ -37,7 +37,7 @@ public class StudentEditForm {
 		this.cdStudent = cdStudent;
 	}
 
-	public Student updateStudent(StudentRespository studentRepository) {
+	public Student updateStudent(StudentRepository studentRepository) {
 		Student student = studentRepository.getOne(this.getCdStudent());
 		student.setId(this.getIdStudent());
 		student.setName(this.getNmStudent());

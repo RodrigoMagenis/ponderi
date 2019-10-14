@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import StudentForm          from './StudentForm';
-import StudentTable         from './StudentTable';
-import StudentHeader        from './StudentHeader';
+import QuestionForm          from './QuestionForm';
+import QuestionTable         from './QuestionTable';
+import QuestionHeader        from './QuestionHeader';
 import $                    from 'jquery';
 import PubSub               from 'pubsub-js';
 
-export default class StudentBox extends Component {
+export default class QuestionBox extends Component {
 
     constructor() {
         super();
@@ -20,7 +20,7 @@ export default class StudentBox extends Component {
 
     componentDidMount() {
         $.ajax({
-            url: "https://localhost:8443/students",
+            url: "https://localhost:8443/questions",
             dataType: 'json',
             type: 'get',
             success:function(response) {
@@ -28,22 +28,18 @@ export default class StudentBox extends Component {
             }.bind(this)
         });
         
-        PubSub.subscribe('refresh-list-students', function(topic, newList) {
+        PubSub.subscribe('refresh-list-questions', function(topic, newList) {
             this.setState({list:newList});
         }.bind(this));
 
-        PubSub.subscribe('refresh-selected-student', function(topic, student) {
-            this.setState({selectedElm:student});
+        PubSub.subscribe('refresh-selected-question', function(topic, question) {
+            this.setState({selectedElm:question});
         }.bind(this));
 
-        PubSub.subscribe('refresh-action-students', function(topic, action) {
+        PubSub.subscribe('refresh-action-questions', function(topic, action) {
             this.setState({action:action});
         }.bind(this));
     }
-
-/*     callbackSelection(value) {
-        this.setState({selectedElm: value});
-    } */
 
     async callbackSelection(value){
         await this.setState({selectedElm: value});
@@ -52,10 +48,11 @@ export default class StudentBox extends Component {
     render() {
         return (
             <div className="content" id="content">
-                <StudentHeader selectedElm={this.state.selectedElm} />
-                <StudentTable list={this.state.list} callbackSelection={this.callbackSelection} selectedElm={this.state.selectedElm} />
-                <StudentForm action={this.state.action} selectedElm={this.state.selectedElm}/>
+                <QuestionHeader selectedElm={this.state.selectedElm} />
+                <QuestionTable list={this.state.list} callbackSelection={this.callbackSelection} selectedElm={this.state.selectedElm} />
+                <QuestionForm action={this.state.action} selectedElm={this.state.selectedElm}/>
             </div>
         );
     }
 }
+
