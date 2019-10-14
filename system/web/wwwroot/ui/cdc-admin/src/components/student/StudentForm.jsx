@@ -23,7 +23,6 @@ export default class StudentForm extends Component {
 
     //TODO Criar classe de action
     sendStudent() {
-        debugger;
         $.ajax({
             url: "https://localhost:8443/students/" + this.props.action,
             contentType: 'application/json',
@@ -66,8 +65,7 @@ export default class StudentForm extends Component {
                 });
 
                 if (this.props.action === 3) {
-                    //TODO adicionar alerta de confirmação
-                    this.sendStudent();
+                    this.deleteStudent();
                 }
             }
         } else {
@@ -78,6 +76,15 @@ export default class StudentForm extends Component {
                     nmStudent: ""
                 });
             }
+        }
+    }
+
+    deleteStudent = () => {
+        if (window.confirm("Deseja realmente excluir?")) {
+            this.sendStudent();
+            PubSub.publish('refresh-selected-student', []);
+        } else {
+            this.setAction(-1);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.example.demo.controller.form;
 
 import javax.validation.constraints.NotNull;
-import com.example.demo.repository.StudentRespository;
+import com.example.demo.repository.StudentRepository;
 
 public class StudentDeleteForm {
 	
@@ -15,7 +15,7 @@ public class StudentDeleteForm {
 		this.cdStudent = cdStudent;
 	}
 
-	public void deleteStudent(StudentRespository studentRepository) {
+	public void deleteStudent(StudentRepository studentRepository) {
 		studentRepository.deleteById(this.getCdStudent());
 	}
 

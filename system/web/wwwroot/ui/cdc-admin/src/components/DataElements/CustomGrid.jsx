@@ -15,7 +15,7 @@ export default class CustomGrid extends Component {
                     rows={25}
                     responsive={true}
                     selection={this.props.selectedElm}
-                    onSelectionChange={event => this.props.callbackSelection(event.value) /*this.setState({elm: event.value})*/}
+                    onSelectionChange={event => this.props.callbackSelection(event.value)}
                 >
                     {
                         this.props.columns.map(function(col) {
