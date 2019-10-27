@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {InputText} from 'primereact/inputtext';
 import {Message} from 'primereact/message';
+//import {Growl} from 'primereact/growl';
 import PubSub             from 'pubsub-js';
 
 export default class CustomInput extends Component {
@@ -8,6 +9,7 @@ export default class CustomInput extends Component {
     constructor() {
         super();
         this.state = {haserror:false, errorMessage:'', className:'p-inputtext p-component'};
+//        this.showError = this.showError.bind(this);
     }
 
     componentDidMount() {
@@ -21,6 +23,11 @@ export default class CustomInput extends Component {
             this.setState({haserror:false, errorMessage:'', className:'p-inputtext p-component'});
         }.bind(this));
     }
+
+    // showError() {
+    //     this.growl.show({severity: 'error', summary: 'Error Message', detail: this.state.errorMessage});
+    //     this.setState({haserror: false});
+    // }
 
 
     render() {
@@ -36,6 +43,8 @@ export default class CustomInput extends Component {
                     onChange={this.props.onChange}
                 />
                 {this.state.haserror && <Message severity="error" text={this.state.errorMessage} />}
+                {/* <Growl ref={(el) => this.growl = el} style={{marginTop: '75px'}} />
+                {this.state.haserror && this.showError()} */}
             </div>
         );
     }

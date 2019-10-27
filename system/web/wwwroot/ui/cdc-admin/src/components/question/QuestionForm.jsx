@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CustomInput          from '../InputElements/CustomInput';
-import CustomDropdown          from '../InputElements/CustomDropdown';
+import CustomDropdown       from '../InputElements/CustomDropdown';
 import $                    from 'jquery';
 import PubSub               from 'pubsub-js';
 import ErrorHandler         from '../validation/ErrorHandler';

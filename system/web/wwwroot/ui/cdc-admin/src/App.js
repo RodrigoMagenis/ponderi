@@ -17,6 +17,8 @@ import {ChartsDemo} from './components/ChartsDemo';
 import {MiscDemo} from './components/MiscDemo';
 import StudentBox from './components/student/StudentBox';
 import QuestionBox from './components/question/QuestionBox';
+import TestBox from './components/test/TestBox';
+import TestExecutionBox from './components/test/TestExecutionBox';
 import {Documentation} from "./components/Documentation";
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -109,7 +111,8 @@ class App extends Component {
                 label: 'Avaliações', icon: 'pi pi-fw pi-file',
                 items: [
                     {label: 'Cadastro de questões', icon: 'pi pi-fw pi-circle-off', to: '/question'},
-                    {label: 'Cadastro de avaliações', icon: 'pi pi-fw pi-circle-off', to: '/test'}
+                    {label: 'Cadastro de avaliações', icon: 'pi pi-fw pi-circle-off', to: '/test'},
+                    {label: 'Execução da avaliação', icon: 'pi pi-fw pi-circle-off', to: '/testexecution'},
                 ]
             },
             {
@@ -247,7 +250,8 @@ class App extends Component {
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/student" component={StudentBox} />
                     <Route path="/question" component={QuestionBox} />
-                    {/* <Route path="/test" component={TestBox} /> */}
+                    <Route path="/test" component={TestBox} />
+                    <Route path="/testexecution" component={TestExecutionBox} />
                     <Route path="/forms" component={FormsDemo} />
                     <Route path="/sample" component={SampleDemo} />
                     <Route path="/data" component={DataDemo} />

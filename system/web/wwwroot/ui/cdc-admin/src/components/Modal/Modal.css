@@ -3,13 +3,14 @@
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     position: fixed;
-    top: 20vh;
+    top: 15vh;
     left: 5%;
+    max-height:80%;
   }
   
   .modal__header {
-    padding: 1rem;
-    background: #5101d1;
+    padding: 0.5rem;
+    background: linear-gradient(to right, #0388E5 0%, #07BDF4 100%);
     color: white;
   }
   
@@ -30,7 +31,7 @@
   
   @media (min-width: 768px) {
     .modal {
-      width: 30rem;
-      left: calc((100% - 30rem) / 2);
+      width: 35rem;
+      left: calc((100% - 35rem) / 2);
     }
   }

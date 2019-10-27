@@ -37,7 +37,7 @@ export class MessagesDemo extends Component {
     showError() {
         let msg = {severity: 'error', summary: 'Error Message', detail: 'Validation failed'};
         this.growl.show(msg);
-        this.messages.show(msg);
+        //this.messages.show(msg);
     }
     
     render() {
